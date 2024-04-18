@@ -1,6 +1,6 @@
 # Keys / secrets
-keys/
-*.json
+# keys/
+# *.json
 
 # Terraform aux
 .terraform/
