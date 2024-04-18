@@ -60,7 +60,6 @@ Still working on this documentation, thanks for your patience! 😄
 
 ## TODO
 - Deploy Mage to cloud (GCP VM)
-- Add trigger to run pipeline weekly
 - Partitioning and clustering
 - Get comment replies (currently getting top level comment only)
 - Differentiate between regular video and short (specify on inputs what to get) (currently getting both)
