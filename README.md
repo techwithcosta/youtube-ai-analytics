@@ -7,11 +7,14 @@ This project will be awesome!
 
 ## My Local Dev Setup
 - **Operating systems:** Windows 11 + WSL (Ubuntu 22.04)
-- **Version control system:** Git + GitHub, create account, setup SSH, clone this repository
-- **SSH link:** ```git@github.com:techwithcosta/youtube-ai-analytics.git```
-- **Some steps here:** [TechWithCosta: Data Engineering Zoomcamp](https://www.youtube.com/playlist?list=PLtU3RENZyLgoe-ptQhZy_mDgdZOMlTLNt)
-- **IDE:** VSCode, install it on Windows and run it from repository on Ubuntu
+- **IDE:** VSCode, install it on Windows
 - **(Optional) Python:** Miniconda, install it on Ubuntu to run Python environments and isolate packages
+- **Version control system:** Git + GitHub, create account, setup SSH, clone this repository
+- **Git folder:** Go to your projects folder (example "git") ```cd git```
+- **Git clone:** ```git clone git@github.com:techwithcosta/youtube-ai-analytics.git```
+- **Go into the project folder:** ```cd youtube-ai-analytics```
+- **Run VSCode from there:** ```code .```
+- **Some steps here:** [TechWithCosta: Data Engineering Zoomcamp](https://www.youtube.com/playlist?list=PLtU3RENZyLgoe-ptQhZy_mDgdZOMlTLNt)
 - **Docker:** install Docker Desktop and set it up with WSL2
 - Terraform (IaC)
 - Mage (orchestrator) http://localhost:6789/
