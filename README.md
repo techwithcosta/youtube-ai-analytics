@@ -29,6 +29,8 @@ This project will be awesome!
 - YouTube API must be enabled on GCP
 - OpenAI API key is retrieved from an OpenAI account (free or paid)
 
+- Dashboard on Looker Studio [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/6745d3eb-f9dd-4329-8d92-ecf8bd177e4d)
+
 ## Notes
 - Store inputs in same place (config.py)
 - Data phases (raw, clean, enriched) YouTube API
