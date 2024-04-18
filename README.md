@@ -6,11 +6,11 @@ Still working on this documentation, thanks for your patience! 😄
 # Current Dashboard
 
 ![Dashboard Page 1](/assets/looker-studio-1.png)
-<!-- ![Dashboard Page 1](/assets/looker-studio-2.png) -->
-![Dashboard Page 1](/assets/looker-studio-3.png)
-![Dashboard Page 1](/assets/looker-studio-4.png)
-![Dashboard Page 1](/assets/looker-studio-5.png)
-![Dashboard Page 1](/assets/looker-studio-6.png)
+<!-- ![Dashboard Page 2](/assets/looker-studio-2.png) -->
+![Dashboard Page 3](/assets/looker-studio-3.png)
+![Dashboard Page 4](/assets/looker-studio-4.png)
+![Dashboard Page 5](/assets/looker-studio-5.png)
+![Dashboard Page 6](/assets/looker-studio-6.png)
 
 # Instructions
 
@@ -24,19 +24,20 @@ Still working on this documentation, thanks for your patience! 😄
 - **IDE:** VSCode, install it on Windows
 - **(Optional) Python:** Miniconda, install it on Ubuntu to run Python environments and isolate packages
 - **Run VSCode from there:** ```code .```
-- **Docker:** install Docker Desktop and set it up with WSL2
-- Terraform (IaC)
-- Mage (orchestrator) http://localhost:6789/
-- GCP (setup trial if possible)
-- YouTube API
-- OpenAI
-- config.py contains pipeline inputs
+- **Docker:** install Docker Desktop and set it up with WSL2, make sure it is running
+- Run ```docker compose build``` from ```mage/``` folder
+- Run ```docker compose up``` from ```mage/``` folder
+- **Run orchestrator:** Open browser and Mage http://localhost:6789/
+- **Pipeline scheduling:** Running weekly, each Sunday at 4am
+- **Cloud:** GCP (setup trial if possible)
 - from the project root folder execute ```chmod +x setup.sh && ./setup.sh```
 - on ```terraform/keys/``` and ```mage/keys/``` update ```my-creds.json``` with GCP service account
+- Enable YouTube Data API v3 on GCP to get API key
+- Get OpenAI API key from OpenAI account (free or paid)
 - on ```mage/``` update ```.env``` with both YouTube API and OpenAI API keys
-- YouTube API must be enabled on GCP
-- OpenAI API key is retrieved from an OpenAI account (free or paid)
-- Dashboard on Looker Studio [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/6745d3eb-f9dd-4329-8d92-ecf8bd177e4d)
+- ```config.py``` contains all pipeline inputs, adjust if needed
+- **Terraform (IaC):** install Terraform on Ubuntu, then adjust ```variables.tf``` from ```terraform/```, run ```terraform plan```, ```terraform apply``` and ```terraform destroy``` (if required)
+- **Current Dashboard on Looker Studio:** [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/6745d3eb-f9dd-4329-8d92-ecf8bd177e4d)
 
 ## Architecture Components
 - **Cloud Provider:** Google Cloud Platform (GCP)
@@ -48,6 +49,9 @@ Still working on this documentation, thanks for your patience! 😄
 - **Data Warehouse:** BigQuery
 - **Data Visualization:** Looker Studio
 
+![Pipeline Trigger](/assets/pipeline-trigger-1.png)
+![Pipeline Scheduling](/assets/pipeline-trigger-2.png)
+
 ## Notes
 - Store inputs in same place (config.py)
 - Data phases (raw, clean, enriched) YouTube API
@@ -55,6 +59,7 @@ Still working on this documentation, thanks for your patience! 😄
 - AI analysis OpenAI API
 
 ## TODO
+- Deploy Mage to cloud (GCP VM)
 - Add trigger to run pipeline weekly
 - Partitioning and clustering
 - Get comment replies (currently getting top level comment only)
