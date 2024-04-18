@@ -31,8 +31,9 @@ Still working on this documentation, thanks for your patience! 😄
 - YouTube API
 - OpenAI
 - config.py contains pipeline inputs
-- rename ```example_my-creds``` into ```my-creds.json``` and update content with GCP service account key (both on ```terraform/keys/``` and ```mage/keys/```)
-- rename ```example_env``` into ```.env``` and update content with both YouTube API and OpenAI API keys
+- from the project root folder execute ```chmod +x setup.sh && ./setup.sh```
+- on ```terraform/keys/``` and ```mage/keys/``` update ```my-creds.json``` with GCP service account
+- on ```mage/``` update ```.env``` with both YouTube API and OpenAI API keys
 - YouTube API must be enabled on GCP
 - OpenAI API key is retrieved from an OpenAI account (free or paid)
 - Dashboard on Looker Studio [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/6745d3eb-f9dd-4329-8d92-ecf8bd177e4d)
@@ -54,7 +55,6 @@ Still working on this documentation, thanks for your patience! 😄
 - AI analysis OpenAI API
 
 ## TODO
-- Create .sh file to rename secrets files
 - Add trigger to run pipeline weekly
 - Partitioning and clustering
 - Get comment replies (currently getting top level comment only)
