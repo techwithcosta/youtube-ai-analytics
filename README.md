@@ -1,7 +1,7 @@
 # youtube-ai-analytics
 Final project: Data Engineering Zoomcamp 2024 (by DataTalksClub).
 
-This project will be awesome!
+Still working on this documentation, thanks for your patience! 😄
 
 # Current Dashboard
 
@@ -27,18 +27,25 @@ This project will be awesome!
 - **Docker:** install Docker Desktop and set it up with WSL2
 - Terraform (IaC)
 - Mage (orchestrator) http://localhost:6789/
-- Python
 - GCP (setup trial if possible)
 - YouTube API
 - OpenAI
-
 - config.py contains pipeline inputs
 - rename ```example_my-creds``` into ```my-creds.json``` and update content with GCP service account key (both on ```terraform/keys/``` and ```mage/keys/```)
 - rename ```example_env``` into ```.env``` and update content with both YouTube API and OpenAI API keys
 - YouTube API must be enabled on GCP
 - OpenAI API key is retrieved from an OpenAI account (free or paid)
-
 - Dashboard on Looker Studio [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/6745d3eb-f9dd-4329-8d92-ecf8bd177e4d)
+
+## Architecture Components
+- **Cloud Provider:** Google Cloud Platform (GCP)
+- **Infrastructure as Code (IaC):** Terraform
+- **Containerization:** Docker
+- **Orchestrator:** Mage
+- **Data Transformations:** Python + SQL
+- **Data Lake:** Google Cloud Storage
+- **Data Warehouse:** BigQuery
+- **Data Visualization:** Looker Studio
 
 ## Notes
 - Store inputs in same place (config.py)
@@ -59,7 +66,7 @@ This project will be awesome!
 - Reproducibility: Dockerfile, docker-compose file
 
 
-# README Example
+# README example to improve current
 
 <div>
 <img src="https://github.com/mage-ai/assets/blob/main/mascots/mascots-shorter.jpeg?raw=true">
