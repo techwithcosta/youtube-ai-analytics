@@ -1,0 +1,8 @@
+version: 0.1.1
+default:
+  # Default profile created for data IO access.
+
+  # Google
+  GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/keys/my-creds.json"
+  GOOGLE_LOCATION: EU
+  
