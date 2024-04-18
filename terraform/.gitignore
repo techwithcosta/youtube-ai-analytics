@@ -1,4 +1,5 @@
-# *.json
+keys/
+*.json
 .terraform/
 *.tfstate
 *.hcl
