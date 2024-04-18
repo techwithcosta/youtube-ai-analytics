@@ -7,23 +7,27 @@ This project will be awesome!
 
 ## My Local Dev Setup
 - **Operating systems:** Windows 11 + WSL (Ubuntu 22.04)
-- **IDE:** VSCode, install it on Windows
-- **(Optional) Python:** Miniconda, install it on Ubuntu to run Python environments and isolate packages
 - **Version control system:** Git + GitHub, create account, setup SSH, clone this repository
 - **Git folder:** Go to your projects folder (example "git") ```cd git```
 - **Git clone:** ```git clone git@github.com:techwithcosta/youtube-ai-analytics.git```
 - **Go into the project folder:** ```cd youtube-ai-analytics```
-- **Run VSCode from there:** ```code .```
 - **Some steps here:** [TechWithCosta: Data Engineering Zoomcamp](https://www.youtube.com/playlist?list=PLtU3RENZyLgoe-ptQhZy_mDgdZOMlTLNt)
+- **IDE:** VSCode, install it on Windows
+- **(Optional) Python:** Miniconda, install it on Ubuntu to run Python environments and isolate packages
+- **Run VSCode from there:** ```code .```
 - **Docker:** install Docker Desktop and set it up with WSL2
 - Terraform (IaC)
 - Mage (orchestrator) http://localhost:6789/
 - Python
-- GCP
+- GCP (setup trial if possible)
 - YouTube API
 - OpenAI
 
-
+- config.py contains pipeline inputs
+- rename ```example_my-creds``` into ```my-creds.json``` and update content with GCP service account key (both on ```terraform/keys/``` and ```mage/keys/```)
+- rename ```example_env``` into ```.env``` and update content with both YouTube API and OpenAI API keys
+- YouTube API must be enabled on GCP
+- OpenAI API key is retrieved from an OpenAI account (free or paid)
 
 ## Notes
 - Store inputs in same place (config.py)
@@ -32,6 +36,9 @@ This project will be awesome!
 - AI analysis OpenAI API
 
 ## TODO
+- Create .sh file to rename secrets files
+- Add trigger to run pipeline weekly
+- Partitioning and clustering
 - Get comment replies (currently getting top level comment only)
 - Differentiate between regular video and short (specify on inputs what to get) (currently getting both)
 - Implement categories to replace integers on df_videos by category string descriptions (youtube.videoCategories())
