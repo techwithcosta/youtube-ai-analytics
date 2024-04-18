@@ -6,7 +6,7 @@ Still working on this documentation, thanks for your patience! 😄
 # Current Dashboard
 
 ![Dashboard Page 1](/assets/looker-studio-1.png)
-![Dashboard Page 1](/assets/looker-studio-2.png)
+<!-- ![Dashboard Page 1](/assets/looker-studio-2.png) -->
 ![Dashboard Page 1](/assets/looker-studio-3.png)
 ![Dashboard Page 1](/assets/looker-studio-4.png)
 ![Dashboard Page 1](/assets/looker-studio-5.png)
