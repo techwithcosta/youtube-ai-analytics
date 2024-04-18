@@ -3,6 +3,15 @@ Final project: Data Engineering Zoomcamp 2024 (by DataTalksClub).
 
 This project will be awesome!
 
+# Current Dashboard
+
+![Dashboard Page 1](/assets/looker-studio-1.png)
+![Dashboard Page 1](/assets/looker-studio-2.png)
+![Dashboard Page 1](/assets/looker-studio-3.png)
+![Dashboard Page 1](/assets/looker-studio-4.png)
+![Dashboard Page 1](/assets/looker-studio-5.png)
+![Dashboard Page 1](/assets/looker-studio-6.png)
+
 # Instructions
 
 ## My Local Dev Setup
