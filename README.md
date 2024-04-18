@@ -1,4 +1,4 @@
-# youtube-ai-analytics
+# YouTube AI Analytics
 Final project: Data Engineering Zoomcamp 2024 (by DataTalksClub).
 
 Still working on this documentation, thanks for your patience! 😄
