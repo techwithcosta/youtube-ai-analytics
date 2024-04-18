@@ -24,19 +24,19 @@ Still working on this documentation, thanks for your patience! 😄
 - **IDE:** VSCode, install it on Windows
 - **(Optional) Python:** Miniconda, install it on Ubuntu to run Python environments and isolate packages
 - **Run VSCode from there:** ```code .```
+- **Cloud:** GCP (setup trial if possible)
+- From the project root folder execute ```chmod +x setup.sh && ./setup.sh```
+- On ```terraform/keys/``` and ```mage/keys/``` update ```my-creds.json``` with GCP service account
+- Enable YouTube Data API v3 on GCP to get API key
+- Get OpenAI API key from OpenAI account (free or paid)
+- On ```mage/``` update ```.env``` with both YouTube API and OpenAI API keys
+- ```config.py``` contains all pipeline inputs, adjust if needed
+- **Terraform (IaC):** install Terraform on Ubuntu, then adjust ```variables.tf``` from ```terraform/```, run ```terraform plan```, ```terraform apply``` and ```terraform destroy``` (if required)
 - **Docker:** install Docker Desktop and set it up with WSL2, make sure it is running
 - Run ```docker compose build``` from ```mage/``` folder
 - Run ```docker compose up``` from ```mage/``` folder
 - **Run orchestrator:** Open browser and Mage http://localhost:6789/
 - **Pipeline scheduling:** Running weekly, each Sunday at 4am
-- **Cloud:** GCP (setup trial if possible)
-- from the project root folder execute ```chmod +x setup.sh && ./setup.sh```
-- on ```terraform/keys/``` and ```mage/keys/``` update ```my-creds.json``` with GCP service account
-- Enable YouTube Data API v3 on GCP to get API key
-- Get OpenAI API key from OpenAI account (free or paid)
-- on ```mage/``` update ```.env``` with both YouTube API and OpenAI API keys
-- ```config.py``` contains all pipeline inputs, adjust if needed
-- **Terraform (IaC):** install Terraform on Ubuntu, then adjust ```variables.tf``` from ```terraform/```, run ```terraform plan```, ```terraform apply``` and ```terraform destroy``` (if required)
 - **Current Dashboard on Looker Studio:** [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/6745d3eb-f9dd-4329-8d92-ecf8bd177e4d)
 
 ## Architecture Components
