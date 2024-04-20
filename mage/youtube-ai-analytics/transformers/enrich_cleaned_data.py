@@ -84,8 +84,6 @@ def transform(df_channels_videos, data, *args, **kwargs):
     """
     df_comments = data[2]
 
-    # TODO process tags (list), in a different table?
-
     # Get most commented videos for summarization
     top_videos = df_channels_videos.groupby('channel_id').apply(lambda group: group.nlargest(number_top_videos, 'video_comment_count')).reset_index(drop=True)
     top_videos = top_videos[['video_id']]
@@ -99,7 +97,7 @@ def transform(df_channels_videos, data, *args, **kwargs):
 
     df_comments_analysis = pd.merge(df_channels_videos, comments_concatenated, on='video_id', how='right')
 
-    # TODO Truncate strings in the column (implement chunk refinements)
+    # Truncate comments to max tokens supported by LLM
     df_comments_analysis['tokens'] = df_comments_analysis['all_comments'].apply(num_tokens_from_string, system_prompt=system_prompt)
     df_comments_analysis['all_comments'] = df_comments_analysis['all_comments'].apply(truncate_to_max_tokens, max_tokens=max_token_length, system_prompt=system_prompt)
 

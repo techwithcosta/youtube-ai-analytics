@@ -174,11 +174,6 @@ def load_data_from_api(*args, **kwargs):
     
     df_comments = get_comments_info(youtube, video_ids, fields_to_extract_comments, data_types_comments)
 
-    # TODO for data validations only
-    # df_channels.to_excel('df_channels.xlsx')
-    # df_videos.to_excel('df_videos.xlsx')
-    # df_comments.to_excel('df_comments.xlsx')
-
     # TODO cannot pass dfs with dictionary?
     return [df_channels, df_videos, df_comments]
 
