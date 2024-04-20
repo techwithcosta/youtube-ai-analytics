@@ -1,14 +1,12 @@
 # YouTube AI Analytics
-Final project: Data Engineering Zoomcamp 2024 (by DataTalksClub).
 
-Still working on this documentation, thanks for your patience! 😄
-
-## Problem Statement
-- Data phases (raw, clean, enriched) YouTube API
-- Channels, videos, comments
-- AI analysis OpenAI API
+## **Automating YouTube Analytics with Custom AI Integrations**, to help creators extracting more value from their audience feedback.
 
 ## Current Dashboard
+
+**Disclamer:** My current GCP trial ends in 22/04/2024, so the dashboard will become unavailable.
+
+- **Looker Studio:** [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/fa71a84d-7e42-4a83-a266-2d4765ca00be)
 
 ![Dashboard Page 1](/assets/looker-studio-1.png)
 <!-- ![Dashboard Page 2](/assets/looker-studio-2.png) -->
@@ -16,6 +14,117 @@ Still working on this documentation, thanks for your patience! 😄
 ![Dashboard Page 4](/assets/looker-studio-4.png)
 ![Dashboard Page 5](/assets/looker-studio-5.png)
 ![Dashboard Page 6](/assets/looker-studio-6.png)
+
+## The Pipeline in a Nutshell
+- Provide a list of videos belonging to the YouTube channels you want to analyze and compare. Example:
+```python
+# YouTube API - list containing videos URLs (1 per channel) to get corresponding channels
+input_videos = [
+    "https://www.youtube.com/watch?v=kf8zbD6Wadc", # DataTalksClub
+    "https://www.youtube.com/watch?v=QMUZ5HfWMRc", # Alex The Analyst
+    "https://www.youtube.com/watch?v=VwX2ymxj5rY", # Sundas Khalid
+    "https://www.youtube.com/watch?v=nB7Lo9pGzVk", # Seattle Data Guy
+    "https://www.youtube.com/watch?v=-MFcNlHMLDY", # Data with Zach
+]
+
+    # "https://www.youtube.com/watch?v=m0Rc9YbunNw", # TechWithCosta (the best channel on YouTube, just kidding)
+    # "https://www.youtube.com/watch?v=vUKr5O-94z0", # Luke Barousse
+    # "https://www.youtube.com/watch?v=Hyhfa7z0jTk", # Ken Jee
+    # "https://www.youtube.com/watch?v=RtuzJuaesmo", # Tina Huang
+```
+- The pipeline gets the target channels automatically
+- Through YouTube API, all user-defined data is extracted regarding **channels**, **videos** and **comments**
+- With pipeline inputs the user can easily specify the fields to extract and data types. Example:
+```python
+# YouTube API - fields to extract - VIDEOS
+fields_to_extract_videos = {
+    "video_id": "id", # unique identifier
+    "channel_id": "snippet.channelId", # foreign key from channels
+    "video_published_at": "snippet.publishedAt",
+    "video_title": "snippet.title",
+    "video_description": "snippet.description",
+    "video_thumbnail_url" : "snippet.thumbnails.standard.url",
+    "video_tags": "snippet.tags",
+    "video_category_id": "snippet.categoryId",
+    "video_duration": "contentDetails.duration",
+    "video_view_count": "statistics.viewCount",
+    "video_like_count": "statistics.likeCount",
+    "video_comment_count": "statistics.commentCount"
+}
+
+# YouTube API - data types - VIDEOS
+data_types_videos = {
+    "video_id": "str",
+    "channel_id": "str",
+    "video_published_at": "datetime64[ns]",
+    "video_title": "str",
+    "video_description": "str",
+    "video_thumbnail_url": "str",
+    "video_tags": "str",
+    "video_category_id": "Int64",
+    "video_duration": "str",
+    "video_view_count": "Int64",
+    "video_like_count": "Int64",
+    "video_comment_count": "Int64"
+}
+```
+- The user can specify a maximum value to cap the number of videos to be extracted per channel, or not
+- Raw data is then cleaned, merged and enriched, using Mage and GCP
+- A seamless OpenAI API integration enables the user to specify what to extract from the audience comments. Example:
+```python
+# System prompt to instruct the model
+system_prompt = """Your goal is to extract insights from a list of YouTube video comments, where each one is separated by "-- || --".
+Your answer must be divided into the following categories:
+"**1. Sentiment**" (3 short bullets summarizing positive, neutral, negative opinions)
+"**2. Keywords**" (1 short bullet with top 5 most relevant single keywords about the topics mentioned, comma-separated)
+"**3. Top Positive**" (the most positive comment)
+"**4. Top Negative**" (the most negative comment)
+Keep it very short and concise.
+If comments are not in English, translate.
+"""
+```
+Output example:
+```
+**1. Sentiment**
+- Positive opinions: Some individuals express their love for the field of data science and find it rewarding.
+- Neutral opinions: There is a mixed feeling among commenters regarding the challenges and ambiguity in data science roles.
+- Negative opinions: Some express frustration with the unrealistic expectations set by companies and the lack of clarity in the job descriptions and roles.
+
+**2. Keywords**
+- Data Science, Job Descriptions, Experience, Skills, Ambiguity
+
+**3. Top Positive**
+"I love being a Data Scientist and have never had a better job. To me the job of a Data Scientist is to translate a business problem into a math problem which can be solved with the available data."
+
+**4. Top Negative**
+"The biggest problem I’ve had so far is working with my manager. We both have very different perspectives on various problems but he simply doesn’t even want to hear my perspective even when my perspective is usually right."
+```
+- The most commented videos and most liked comments are being prioritized, and the user can also specify a number to cap the number of videos to be subjected to this AI analysis. Everything is customizable :)
+
+This started as my final project for the **Data Engineering Zoomcamp 2024 (by DataTalksClub)**.
+
+## Introduction
+In today's digital landscape, YouTube serves as a powerhouse for content creators to share their videos and engage with audiences worldwide.
+
+However, with the sheer volume of content uploaded daily, extracting meaningful insights from viewer comments and understanding audience sentiment poses a significant challenge.
+
+The project harnesses the power of the **YouTube Data API** and **OpenAI's Language Models (LLMs)** to automate the analysis of user-defined YouTube **channels**, **videos**, and **comments**.
+
+## Problem Statement
+Manual analysis of viewer comments on YouTube is time-consuming and labor-intensive, making it difficult for content creators to extract valuable insights about audience sentiment, preferences, and engagement patterns.
+
+**This is not to say that creators should stop reading their audiences' feedback and use AI instead! The goal here is just to enrich the overall analysis results, enabling search and extraction of specific feedback, without reading through thousands of comments, in some cases.**
+
+Additionally, the sheer volume of comments makes it challenging to identify and prioritize critical feedback effectively.
+
+## Solution
+This project offers an innovative solution by automating the analysis of viewer comments using OpenAI's Language Models (LLMs) integrated with the YouTube Data API.
+
+By leveraging AI-driven natural language processing, the system automatically extracts insights from user-defined YouTube channels, including sentiment analysis, topic modeling, and audience engagement metrics.
+
+This automation empowers content creators to gain deeper insights into their audience's preferences, sentiment, and engagement patterns, allowing them to tailor their content strategy, optimize engagement tactics, and enhance audience targeting effectively.
+
+By automating the analysis process, the pipeline enables creators to make data-driven decisions efficiently, saving time and resources while maximizing the impact of their content.
 
 ## Instructions
 - **Operating systems:** Windows 11 + WSL (Ubuntu 22.04)
@@ -62,10 +171,11 @@ docker compose build
 docker compose up
 ```
 - **Run orchestrator:** Open browser and Mage http://localhost:6789/
-- **Pipeline scheduling:** Running weekly, each Sunday at 4am
-- **Current Dashboard on Looker Studio:** [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/6745d3eb-f9dd-4329-8d92-ecf8bd177e4d)
+- **Pipeline scheduling:** Ideally running weekly, each Sunday at 4am for example. This is still to be deployed in the cloud, and integrated with CI/CD. In Dev phase yet :)
 
 ## Architecture Components
+- **Data Layers:** Bronze - Silver - Gold
+- **Data Phases:** Raw - Cleaned - Merged - Enriched
 - **Cloud Provider:** Google Cloud Platform (GCP)
 - **Infrastructure as Code (IaC):** Terraform
 - **Containerization:** Docker
