@@ -4,9 +4,7 @@
 
 ## Current Dashboard
 
-**Disclamer:** My current GCP trial ends in 22/04/2024, so the dashboard will become unavailable.
-
-- **Looker Studio:** [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/fa71a84d-7e42-4a83-a266-2d4765ca00be)
+- **Looker Studio:** [YouTube AI Analytics Dashboard](https://lookerstudio.google.com/reporting/424081be-f86f-4a43-bcd9-05d61a3e007a)
 
 ![Dashboard Page 1](/assets/looker-studio-1.png)
 <!-- ![Dashboard Page 2](/assets/looker-studio-2.png) -->
