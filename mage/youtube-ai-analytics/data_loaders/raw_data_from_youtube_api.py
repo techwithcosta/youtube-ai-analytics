@@ -163,16 +163,28 @@ def load_data_from_api(*args, **kwargs):
     youtube = build('youtube', 'v3', developerKey=api_key)
 
     channel_ids = get_channel_ids(youtube, input_videos)
+    print("DONE -> channel_ids")
     
     df_channels = get_channels_info(youtube, channel_ids, fields_to_extract_channels, data_types_channels)
+    print("DONE -> df_channels")
+
+    # df_channels.to_excel('raw_df_channels.xlsx')
 
     uploads_playlist_ids = df_channels['channel_uploads_playlist_id']
+    print("DONE -> uploads_playlist_ids")
 
     video_ids = get_video_ids(youtube, uploads_playlist_ids, max_videos_per_channel)
+    print("DONE -> video_ids")
 
     df_videos = get_videos_info(youtube, video_ids, fields_to_extract_videos, data_types_videos)
-    
+    print("DONE -> df_videos")
+
+    # df_videos.to_excel('raw_df_videos.xlsx')
+
     df_comments = get_comments_info(youtube, video_ids, fields_to_extract_comments, data_types_comments)
+    print("DONE -> df_comments")
+
+    # df_comments.to_excel('raw_df_comments.xlsx')
 
     # TODO cannot pass dfs with dictionary?
     return [df_channels, df_videos, df_comments]
