@@ -103,6 +103,7 @@ def transform(df_channels_videos, data, *args, **kwargs):
 
     df_comments_analysis['comments_summary'] = df_comments_analysis['all_comments'].apply(summarize_comments)
 
+    # df_channels_videos.to_excel('df_channels_videos.xlsx')
     # df_comments_analysis.to_excel('df_comments_analysis.xlsx')
 
     return df_comments_analysis
