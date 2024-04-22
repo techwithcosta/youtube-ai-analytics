@@ -157,7 +157,7 @@ chmod +x setup.sh && ./setup.sh
 - On ```mage/``` update ```.env``` with both YouTube API and OpenAI API keys
 - ```config.py``` contains all pipeline inputs, adjust if needed
 - **Terraform (IaC):** install Terraform on Ubuntu from [here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (for Linux)
-- **Initialize Terraform:** from the ```terraform/``` folder
+- **Initialize Terraform:** from the ```terraform/``` folder run the following
 ```bash
 terraform init
 ```
