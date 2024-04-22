@@ -156,7 +156,12 @@ chmod +x setup.sh && ./setup.sh
 - Get OpenAI API key from OpenAI account (free or paid)
 - On ```mage/``` update ```.env``` with both YouTube API and OpenAI API keys
 - ```config.py``` contains all pipeline inputs, adjust if needed
-- **Terraform (IaC):** install Terraform on Ubuntu, then adjust ```variables.tf``` from ```terraform/```
+- **Terraform (IaC):** install Terraform on Ubuntu from [here](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) (for Linux)
+- **Initialize Terraform:** from the ```terraform/``` folder
+```bash
+terraform init
+```
+- **Configure Terraform:** adjust ```variables.tf``` from ```terraform/``` then run the following
 ```bash
 terraform plan
 terraform apply
