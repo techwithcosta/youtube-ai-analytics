@@ -44,7 +44,6 @@ def transform(data, *args, **kwargs):
     # CHANNELS TRANSFORMATIONS
     df_channels = df_channels.drop(columns=['channel_uploads_playlist_id'])
     df_channels['channel_custom_url'] = 'https://www.youtube.com/' + df_channels['channel_custom_url']
-    df_channels['channel_custom_url'] = 'https://www.youtube.com/' + df_channels['channel_custom_url']
     df_channels['channel_title'].replace('DataTalksClub ⬛', 'DataTalksClub', inplace=True)
 
     # VIDEOS TRANSFORMATIONS
@@ -78,9 +77,9 @@ def transform(data, *args, **kwargs):
     df_videos.replace('nan', np.nan, inplace=True)
     df_comments.replace('nan', np.nan, inplace=True)
 
-    # df_channels.to_excel('df_channels.xlsx')
-    # df_videos.to_excel('df_videos.xlsx')
-    # df_comments.to_excel('df_comments.xlsx')
+    # df_channels.to_excel('cleaned_df_channels.xlsx')
+    # df_videos.to_excel('cleaned_df_videos.xlsx')
+    # df_comments.to_excel('cleaned_df_comments.xlsx')
 
     return [df_channels, df_videos, df_comments]
 
